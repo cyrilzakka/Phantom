@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this toolbox, please consider citing it as below:"
+authors:
+- family-names: "Zakka"
+  given-names: "Cyril"
+  orcid: "https://orcid.org/0000-0001-8446-2349"
+- family-names: "Shad"
+  given-names: "Rohan"
+  orcid: "https://orcid.org/0000-0002-0453-9041"
+- family-names: "Hiesinger"
+  given-names: "William"
+  orcid: "https://orcid.org/0000-0002-3548-2578"
+title: "Phantom: DICOM Anonymization Tools"
+version: 0.0.1
+date-released: 2023-01-19
+url: "https://github.com/cyrilzakka/"

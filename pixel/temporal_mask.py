@@ -31,7 +31,7 @@ class TemporalMaskingPipeline:
         target_size: Target size to resize DICOM
         use_color: Specify whether output videos are in RGB or greyscale
     """
-    def __init__(self, source_folder, destination_folder, target_size=224, use_color=True):
+    def __init__(self, source_folder, destination_folder, target_size=600, use_color=True):
         self.destination_folder = pathlib.Path(destination_folder)
         self.destination_folder.mkdir(parents=True, exist_ok=True)
 

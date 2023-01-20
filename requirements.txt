@@ -2,3 +2,4 @@ numpy
 pydicom
 Pillow
 opencv-python
+omegaconf

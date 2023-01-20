@@ -1,0 +1,3 @@
+keep: ['PatientsSex']                                           # keys to keep in the DICOM metadata              list<str>
+jitter: {'AcquisitionDateTime': 10, 'PatientBirthDate': 30}     # keys to jitter specified as a list of tuple     dict<(str, int)>
+generate: ['PatientID']                                         # keys to replace with an randomized ID           list<str>

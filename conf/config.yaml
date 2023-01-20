@@ -1,0 +1,4 @@
+defaults: 'base'
+keep: ['HeartRate', 'NumberOfFrames']
+jitter: {'AcquisitionDateTime': 30, 'StudyDate': 30}
+generate: []

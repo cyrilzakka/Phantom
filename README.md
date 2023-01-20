@@ -16,8 +16,7 @@ pip install -r requirements.txt
 ```
 
 ## Usage
-
-### Metadata
+### Metadata (Alpha)
 Phantom maintains a very strict paradigm for anonymization to ensure a maximum degree of privacy. Identifiers specified in a `base.yaml` are kept within the metadata of the DICOM file, while everything else, inluding private metadata is purged. Pixel data is always preserved.
 
 To anonymize DICOM metadata, simply run:
@@ -28,9 +27,9 @@ where `config.yaml` is a simple YAML specifying the attributes to keep in the DI
 ```yaml
 --- base.yaml ---
 base:
-  keep: ['PatientsSex']                   # keys to keep in the DICOM metadata              list<str>
-  jitter: [('PatientBirthDate', 30)]      # keys to jitter specified as a list of tuple     list<(str, int)>
-  generate: ['PatientID']                 # keys to replace with an randomized ID           list<str>
+  keep: ['PatientsSex']                # keys to keep in the DICOM metadata              list<str>
+  jitter: {'PatientBirthDate': 30}     # keys to jitter specified as a list of tuple     dict<(str, int)>
+  generate: ['PatientID']              # keys to replace with an randomized ID           list<str>
 ``` 
 
 As DICOMs become more complex, we resort to modularity to keep anonymization manageable. Phantom configs can be composed together to create more complex anonymization pipelines. As an example, here we create a new `echo.yaml` configuration that inherits from `base.yaml` above. while appending modality-specific attributes like `HeartRate` or `NumberOfFrames`. Please keep in mind that in the case of inheritance any keys specified within either configuration files will be kept.
@@ -39,7 +38,7 @@ As DICOMs become more complex, we resort to modularity to keep anonymization man
 echo:
   defaults: 'base'
   keep: ['HeartRate', 'NumberOfFrames']
-  jitter: [('AcquisitionDateTime', 30), ('StudyDate', 30)]
+  jitter: {'AcquisitionDateTime': 30, 'StudyDate': 30}
   generate: []  
 ``` 
 
